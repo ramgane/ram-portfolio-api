@@ -169,6 +169,7 @@ export const sendEmailServicesFun = async (body) => {
       message: "Email sent successfully",
     };
   } catch (error) {
+    console.log(error)
     console.error("Error sending email:", error);
     return {
       status: false,

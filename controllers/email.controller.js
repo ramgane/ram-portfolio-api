@@ -9,8 +9,7 @@ export const sendEmail = async (req, res) => {
 
   try {
     // Compose email text
-    const emailText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-
+  
     const info = await sendEmailServicesFun(req.body);
 
     res.status(200).json({ message: "Email sent successfully", info });
