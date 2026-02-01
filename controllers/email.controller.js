@@ -1,4 +1,4 @@
-import { sendEmailService } from "../services/email.service.js";
+import { sendEmailService, sendEmailServicesFun } from "../services/email.service.js";
 
 export const sendEmail = async (req, res) => {
   const { name, email, subject, message } = req.body;
@@ -11,7 +11,7 @@ export const sendEmail = async (req, res) => {
     // Compose email text
     const emailText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
 
-    const info = await sendEmailService(email, subject, emailText);
+    const info = await sendEmailServicesFun(req.body);
 
     res.status(200).json({ message: "Email sent successfully", info });
   } catch (error) {
